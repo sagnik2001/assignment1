@@ -1,0 +1,20 @@
+.box{
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   min-height: 90vh;
+  }
+  @media (max-width:600px) {
+  .image{
+    width: 60% !important;
+  }
+  .card{
+    width: 80% !important;
+  }
+  }
+  .card{
+
+   box-shadow:  2px 2px 1px -1px rgb(0 0 0 / 20%), 9px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 5px rgb(0 0 0 / 12%) !important;
+  }
