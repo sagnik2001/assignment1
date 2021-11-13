@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Link ,  Navigate,} from 'react-router-dom
 import Forgot from './Components/ForgotPass/Forgot';
 import ProtectedRoute from "./ProtectedRoute";
 import ResetPass from "./Components/ResetPass/ResetPass";
+
 function App() {
   const {currentUser}=useAuth()
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<LogIn/>} />
         <Route path="/forgot" element={<Forgot/>} />
         <Route path="/reset" element={<ResetPass/>} />
+       
           </Routes> 
         </div>
     </BrowserRouter>

@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 import { useAuth } from '../../AuthContext/AuthContext';
 import {Link} from "react-router-dom"
 const Home = () => {
-    const {logout}=useAuth()
+    const {currentUser,logout}=useAuth()
+    console.log(currentUser?.emailVerified)
     return (
         <Box sx={{ flexGrow: 1 }} >
         <AppBar position="static" style={{backgroundColor:"green"}}>

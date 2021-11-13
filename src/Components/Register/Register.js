@@ -90,9 +90,9 @@ const Register = () => {
        setpasserror('')
        console.log(email,password)
        register(email,password)
-       .then((response)=>{console.log(response)
-          EmailVerification(response)
-          history("/home")
+       .then((response)=>{console.log(response.user.email)
+        EmailVerification(response)
+          
          
           setemail('')
           setconfirmpass('')
@@ -104,8 +104,10 @@ const Register = () => {
   }
   const EmailVerification=async(e)=>{
     var userNow = app.auth().currentUser;
-    userNow.sendEmailVerification().then(()=>{
-      console.log("Verified")
+    userNow.sendEmailVerification({
+      url: `http://localhost:3000/home`,
+    }).then(()=>{
+       console.log("hi")
     })
     .catch((er)=>console.log(er))
   }

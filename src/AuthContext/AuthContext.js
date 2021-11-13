@@ -1,7 +1,7 @@
 /* Context API */
 import {React,createContext,useEffect,useContext,useState} from 'react'
 import {auth} from "../Database/Firebase"
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut, signInWithPopup,  sendPasswordResetEmail,
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut, signInWithPopup,  sendPasswordResetEmail,sendEmailVerification,
   confirmPasswordReset,
   GoogleAuthProvider,} from "firebase/auth"
 const AuthContext = createContext({//  We create a variable and set it to create Context
@@ -12,6 +12,7 @@ const AuthContext = createContext({//  We create a variable and set it to create
     signInWithGoogle:()=>Promise,
     forgotPassword: () => Promise,
     resetPassword: () => Promise,
+
 })
 export const useAuth=()=>useContext(AuthContext)
 // We create a Provider function which can be used as parent of other components where the child would be required 
@@ -47,6 +48,7 @@ export default function AuthContextProvider(props){
         url: `http://localhost:3000/login`,
       })
     }
+  
     function resetPassword(oobCode, newPassword) {
       return confirmPasswordReset(auth, oobCode, newPassword)
     }
@@ -58,6 +60,7 @@ export default function AuthContextProvider(props){
         signInWithGoogle,
         forgotPassword,
         resetPassword,
+      
     }
    
     // Here the value prop is needed by other components 
